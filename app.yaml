@@ -1,0 +1,21 @@
+runtime: nodejs
+env: flex
+
+env_variables:
+  MONGO_URI: mongodb+srv://vpassanisi:tele.831@gratitude-journal-cluster-g9icn.mongodb.net/Gratitude-Journal-Data?retryWrites=true&w=majority
+
+  JWT_SECRET: "zxcmnbsadu"
+
+  JWT_EXPIRE: "30d"
+
+  JWT_COOKIE_EXPIRE: 30
+
+manual_scaling:
+  instances: 1
+resources:
+  cpu: 1
+  memory_gb: 0.5
+  disk_size_gb: 10
+
+health_check:
+  enable_health_check: False
