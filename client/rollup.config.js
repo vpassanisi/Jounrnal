@@ -52,7 +52,7 @@ export default {
       purge: production,
       output: "public/global.css", // it defaults to static/global.css which is probably what you expect in Sapper
       postcss: [], // Your PostCSS plugins
-      whitelist: [], // Array of classnames whitelisted from purging
+      whitelist: ["mode-dark", "dark\:bg-dark-500", "bg-dark-500"], // Array of classnames whitelisted from purging
       whitelistPatterns: [], // Same as above, but list of regexes
       tailwind: {
         theme: {
