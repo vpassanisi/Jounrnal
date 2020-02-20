@@ -10,6 +10,7 @@ const hpp = require("hpp");
 const cors = require("cors");
 const colors = require("colors");
 const errorHandler = require("./middleware/error");
+const path = require("path");
 
 dotenv.config({ path: "./config/config.env" });
 
@@ -41,9 +42,20 @@ app.use(cors());
 app.use("/api/v1/auth", auth);
 app.use("/api/v1/entries", entries);
 
+app.use(express.static("client/public"));
+app.use(express.static("client/public/docs"));
+
+app.get("/docs", (req, res) =>
+  res.sendFile(path.resolve(__dirname, "client", "public", "docs", "docs.html"))
+);
+
+app.get("*", (req, res) =>
+  res.sendFile(path.resolve(__dirname, "client", "public", "index.html"))
+);
+
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5500;
 
 const server = app.listen(
   PORT,

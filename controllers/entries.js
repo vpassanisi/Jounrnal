@@ -84,7 +84,8 @@ exports.updateEntry = asyncHandler(async (req, res, next) => {
 
   entry = await Entry.findByIdAndUpdate(req.params.entryid, req.body, {
     new: true,
-    runValidators: true
+    runValidators: true,
+    useFindAndModify: false
   });
 
   res.status(200).json({
