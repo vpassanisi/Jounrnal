@@ -10,7 +10,7 @@
   let errorMsg;
 
   const createUser = async () => {
-    const req = await fetch("http://localhost:5500/api/v1/auth/register", {
+    const req = await fetch("/api/v1/auth/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body)
@@ -36,7 +36,7 @@
     <TextField outlined label="name" bind:value={body.name} />
     <TextField outlined label="email" bind:value={body.email} />
     <TextField outlined label="password" bind:value={body.password} />
-    <Button color="secondary" on:click={createUser}>test</Button>
+    <Button color="secondary" on:click={createUser}>create</Button>
   </div>
 </div>
 

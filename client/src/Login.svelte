@@ -17,7 +17,7 @@
   });
 
   const login = async () => {
-    const req = await fetch("http://localhost:5500/api/v1/auth/login", {
+    const req = await fetch("/api/v1/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body)
@@ -43,7 +43,7 @@
     rounded">
     <TextField outlined label="email" bind:value={body.email} />
     <TextField outlined label="password" bind:value={body.password} />
-    <Button color="secondary" on:click={login}>test</Button>
+    <Button color="secondary" on:click={login}>login</Button>
   </div>
 </div>
 

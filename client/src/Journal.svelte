@@ -12,7 +12,7 @@
     const loader = document.getElementById("loader");
     loader.classList.remove("hidden");
 
-    const req = await fetch("http://localhost:5500/api/v1/entries", {
+    const req = await fetch("/api/v1/entries", {
       method: "GET",
       headers: {
         Authorization: "Bearer " + JSON.parse(localStorage.getItem("token"))
@@ -29,7 +29,7 @@
   });
 
   const newEntry = async entry => {
-    const req = await fetch("http://localhost:5500/api/v1/entries", {
+    const req = await fetch("/api/v1/entries", {
       method: "POST",
       headers: {
         Authorization: "Bearer " + JSON.parse(localStorage.getItem("token")),
@@ -53,7 +53,7 @@
 
     if (!check) return;
 
-    const req = await fetch(`http://localhost:5500/api/v1/entries/${id}`, {
+    const req = await fetch(`/api/v1/entries/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: "Bearer " + JSON.parse(localStorage.getItem("token"))
@@ -71,7 +71,7 @@
   };
 
   const editEntry = async (entry, id, i) => {
-    const req = await fetch(`http://localhost:5500/api/v1/entries/${id}`, {
+    const req = await fetch(`/api/v1/entries/${id}`, {
       method: "PUT",
       body: JSON.stringify(entry),
       headers: {
