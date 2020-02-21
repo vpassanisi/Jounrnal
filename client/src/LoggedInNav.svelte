@@ -27,7 +27,7 @@
       href="/journal"
       use:link
       class="h-full w-full flex justify-center items-center text-white">
-      Jounral
+      Journal
     </a>
   </li>
   <li

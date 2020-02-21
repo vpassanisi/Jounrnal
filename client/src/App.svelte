@@ -17,7 +17,21 @@
   };
 </script>
 
+<style>
+  .bg-img {
+    background: url("/Journalll-background.jpg") rgba(255, 0, 191, 0.418) center
+      center/cover;
+    background-blend-mode: hue;
+    position: absolute;
+    z-index: -10;
+    filter: blur(50px);
+    height: 100vh;
+    width: 100vw;
+  }
+</style>
+
 <main>
+  <div class="bg-img" />
   <Navbar />
   <Router {routes} />
 </main>
