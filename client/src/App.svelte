@@ -27,6 +27,9 @@
     filter: blur(50px);
     height: 100vh;
     width: 100vw;
+    -webkit-transform: translateZ(0);
+    -webkit-perspective: 1000;
+    -webkit-backface-visibility: hidden;
   }
 </style>
 
