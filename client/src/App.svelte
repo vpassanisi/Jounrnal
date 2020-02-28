@@ -19,17 +19,15 @@
 
 <style>
   .bg-img {
-    background: url("/Journalll-background.jpg") rgba(255, 0, 191, 0.418) center
-      center/cover;
-    background-blend-mode: hue;
+    /* background: url("/Journalll-background.jpg") rgba(255, 0, 191, 0.418) center
+      center/cover; */
+    /* background-blend-mode: hue; */
+    /* filter: blur(50px); */
+    background: url("/Journal-bg.jpg") center center/cover;
     position: absolute;
     z-index: -10;
-    filter: blur(50px);
     height: 100vh;
     width: 100vw;
-    -webkit-transform: translateZ(0);
-    -webkit-perspective: 1000;
-    -webkit-backface-visibility: hidden;
   }
 </style>
 

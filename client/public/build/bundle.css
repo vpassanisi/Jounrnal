@@ -1,11 +1,10 @@
-.bg-img.svelte-19x59r0{background:url("/Journalll-background.jpg") rgba(255, 0, 191, 0.418) center
-      center/cover;background-blend-mode:hue;position:absolute;z-index:-10;filter:blur(50px);height:100vh;width:100vw;-webkit-transform:translateZ(0);-webkit-perspective:1000;-webkit-backface-visibility:hidden}
+.bg-img.svelte-1u32boq{background:url("/Journal-bg.jpg") center center/cover;position:absolute;z-index:-10;height:100vh;width:100vw}
 nav.svelte-1jg0su2{position:fixed;top:0;left:0;height:100%;padding:2rem 0rem 0rem;border-left:1px solid #aaa;background:#fff;overflow-y:auto;width:16rem;z-index:11}.modal-overlay.svelte-1jg0su2{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0, 0, 0, 0.5);z-index:10;display:flex;flex-direction:column;justify-content:center}
 nav.svelte-1jg0su2{position:fixed;top:0;left:0;height:100%;padding:2rem 0rem 0rem;border-left:1px solid #aaa;background:#fff;overflow-y:auto;width:16rem;z-index:11}.modal-overlay.svelte-1jg0su2{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0, 0, 0, 0.5);z-index:10;display:flex;flex-direction:column;justify-content:center}
 @media only screen and (min-width: 1024px){.height.svelte-19auoug{height:95vh}}
 .modal-overlay.svelte-1mo1fvr{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0, 0, 0, 0.5);z-index:10}.editEntry.svelte-1mo1fvr{margin-top:10vh}
-.line.svelte-xd9zs6{height:1px}
 .label-top.svelte-g3sy94{line-height:0.05}.label-transition.svelte-g3sy94{transition:font-size 0.05s, line-height 0.1s}
+.line.svelte-xd9zs6{height:1px}
 .snackbar.svelte-1ym8qvd{min-width:344px}
 .inc.svelte-mguqwa{animation:svelte-mguqwa-increase 2s ease-in-out infinite}.dec.svelte-mguqwa{animation:svelte-mguqwa-decrease 2s 0.9s ease-in-out infinite}@keyframes svelte-mguqwa-increase{from{left:-5%;width:5%}to{left:130%;width:150%}}@keyframes svelte-mguqwa-decrease{from{left:-90%;width:90%}to{left:110%;width:10%}}
 .reverse.svelte-zzky5a{transform:rotate(180deg)}.tip.svelte-zzky5a{transform:rotate(90deg)}

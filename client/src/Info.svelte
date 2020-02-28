@@ -8,7 +8,7 @@
       <p>
         This is a simple journaling app that you can use for anything! It also
         has a public api. It looks great on mobile too and make sure to try the
-        light mode!
+        dark mode!
       </p>
     </div>
     <Button color="secondary">

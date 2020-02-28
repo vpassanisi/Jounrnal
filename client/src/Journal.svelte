@@ -22,6 +22,7 @@
     const res = await req.json();
 
     if (res.success) {
+      res.data.reverse();
       entries = res.data;
     }
 
@@ -29,6 +30,8 @@
   });
 
   const newEntry = async entry => {
+    document.getElementById("add-loading").classList.remove("hidden");
+
     const req = await fetch("/api/v1/entries", {
       method: "POST",
       headers: {
@@ -38,14 +41,22 @@
       body: JSON.stringify(entry)
     });
 
+    if (req.status === 404) {
+      showError = true;
+      errorMsg = "Resource not found :(";
+      document.getElementById("add-loading").classList.add("hidden");
+    }
+
     const res = await req.json();
 
     if (res.success) {
-      entries = [...entries, res.data];
+      entries = [res.data, ...entries];
     } else {
       showError = true;
       errorMsg = res.error;
     }
+
+    document.getElementById("add-loading").classList.add("hidden");
   };
 
   const deleteEntry = async (id, i) => {
@@ -62,8 +73,6 @@
 
     const res = await req.json();
 
-    console.log(res);
-
     if (res.success) {
       entries.splice(i, 1);
       entries = entries;
@@ -71,6 +80,8 @@
   };
 
   const editEntry = async (entry, id, i) => {
+    document.getElementById("edit-loading").classList.remove("hidden");
+
     const req = await fetch(`/api/v1/entries/${id}`, {
       method: "PUT",
       body: JSON.stringify(entry),
@@ -79,6 +90,12 @@
         "Content-Type": "application/json"
       }
     });
+
+    if (req.status === 404) {
+      showError = true;
+      errorMsg = "Resource not found :(";
+      document.getElementById("edit-loading").classList.add("hidden");
+    }
 
     const res = await req.json();
 
