@@ -26,6 +26,7 @@
     const res = await req.json();
 
     if (res.success) {
+      localStorage.setItem("token", JSON.stringify(res.token));
       push("/journal");
       $loggedIn = true;
     } else {

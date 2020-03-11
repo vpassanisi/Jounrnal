@@ -15,7 +15,7 @@
       href="/newUser"
       use:link
       class="h-full w-full flex justify-center items-center text-white">
-      New User
+      New Journal
     </a>
   </li>
   <li

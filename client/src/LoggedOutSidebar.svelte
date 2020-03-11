@@ -74,7 +74,7 @@
           href="/newUser"
           use:link
           on:click={sidebar()}>
-          New User
+          New Journal
         </a>
       </li>
       <hr />
