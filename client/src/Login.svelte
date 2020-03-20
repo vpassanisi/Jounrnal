@@ -5,6 +5,7 @@
   import { push } from "svelte-spa-router";
   import { onMount } from "svelte";
   import Snackbar from "smelte/src/components/Snackbar";
+  import { baseUrl } from "./_baseURL.js";
 
   let body = {};
   let errorMsg;
@@ -17,8 +18,8 @@
   });
 
   const login = async () => {
-    document.getElementById("login-loading").classList.remove("hidden");
-    const req = await fetch("/api/v1/auth/login", {
+    document.getElementById("loading").classList.remove("hidden");
+    const req = await fetch(`${baseUrl}/api/v1/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body)
@@ -27,7 +28,7 @@
     if (req.status === 404) {
       showError = true;
       errorMsg = "Resourse not found :(";
-      document.getElementById("login-loading").classList.add("hidden");
+      document.getElementById("loading").classList.add("hidden");
     }
 
     const res = await req.json();
@@ -40,7 +41,7 @@
       showError = true;
       errorMsg = res.error;
     }
-    document.getElementById("login-loading").classList.add("hidden");
+    document.getElementById("loading").classList.add("hidden");
   };
 </script>
 
@@ -51,33 +52,7 @@
     rounded">
     <TextField outlined label="email" bind:value={body.email} />
     <TextField outlined label="password" bind:value={body.password} />
-    <Button
-      color="secondary"
-      on:click={login}
-      add="flex flex-row items-center justify-between h-10">
-      <div class="w-2/5" />
-      <div class="w-1/5">login</div>
-      <div class="w-2/5 h-full flex items-center">
-        <svg
-          id="login-loading"
-          viewBox="0 0 50 50"
-          style="enable-background:new 0 0 50 50;"
-          class="hidden inline-block h-full w-6">
-          <path
-            fill="#fff"
-            d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
-            <animateTransform
-              attributeType="xml"
-              attributeName="transform"
-              type="rotate"
-              from="0 25 25"
-              to="360 25 25"
-              dur="0.6s"
-              repeatCount="indefinite" />
-          </path>
-        </svg>
-      </div>
-    </Button>
+    <Button color="secondary" on:click={login} add="h-10">login</Button>
   </div>
 </div>
 

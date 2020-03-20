@@ -3,16 +3,17 @@
   import Entries from "./Entries.svelte";
   import Snackbar from "smelte/src/components/Snackbar";
   import { onMount } from "svelte";
+  import { baseUrl } from "./_baseURL.js";
 
   let entries = [];
   let showError = false;
   let errorMsg;
 
   onMount(async () => {
-    const loader = document.getElementById("loader");
+    const loader = document.getElementById("loading");
     loader.classList.remove("hidden");
 
-    const req = await fetch("/api/v1/entries", {
+    const req = await fetch(`${baseUrl}/api/v1/entries`, {
       method: "GET",
       headers: {
         Authorization: "Bearer " + JSON.parse(localStorage.getItem("token"))
@@ -30,9 +31,9 @@
   });
 
   const newEntry = async entry => {
-    document.getElementById("add-loading").classList.remove("hidden");
+    document.getElementById("loading").classList.remove("hidden");
 
-    const req = await fetch("/api/v1/entries", {
+    const req = await fetch(`${baseUrl}/api/v1/entries`, {
       method: "POST",
       headers: {
         Authorization: "Bearer " + JSON.parse(localStorage.getItem("token")),
@@ -44,7 +45,7 @@
     if (req.status === 404) {
       showError = true;
       errorMsg = "Resource not found :(";
-      document.getElementById("add-loading").classList.add("hidden");
+      document.getElementById("loading").classList.add("hidden");
     }
 
     const res = await req.json();
@@ -56,7 +57,7 @@
       errorMsg = res.error;
     }
 
-    document.getElementById("add-loading").classList.add("hidden");
+    document.getElementById("loading").classList.add("hidden");
   };
 
   const deleteEntry = async (id, i) => {
@@ -64,7 +65,7 @@
 
     if (!check) return;
 
-    const req = await fetch(`/api/v1/entries/${id}`, {
+    const req = await fetch(`${baseUrl}/api/v1/entries/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: "Bearer " + JSON.parse(localStorage.getItem("token"))
@@ -80,9 +81,9 @@
   };
 
   const editEntry = async (entry, id, i) => {
-    document.getElementById("edit-loading").classList.remove("hidden");
+    document.getElementById("loading").classList.remove("hidden");
 
-    const req = await fetch(`/api/v1/entries/${id}`, {
+    const req = await fetch(`${baseUrl}/api/v1/entries/${id}`, {
       method: "PUT",
       body: JSON.stringify(entry),
       headers: {
@@ -94,7 +95,7 @@
     if (req.status === 404) {
       showError = true;
       errorMsg = "Resource not found :(";
-      document.getElementById("edit-loading").classList.add("hidden");
+      document.getElementById("loading").classList.add("hidden");
     }
 
     const res = await req.json();
@@ -105,6 +106,7 @@
       showError = true;
       errorMsg = res.error;
     }
+    document.getElementById("loading").classList.add("hidden");
   };
 </script>
 
@@ -112,4 +114,5 @@
   <Writer {newEntry} />
   <Entries {entries} {deleteEntry} {editEntry} />
 </div>
+
 <Snackbar color="red" top bind:value={showError}>{errorMsg}</Snackbar>

@@ -12,7 +12,6 @@
 
   function overlay_click(e) {
     if ("close" in e.target.dataset) sidebar();
-    console.log($darkMode);
   }
 </script>
 

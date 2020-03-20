@@ -3,12 +3,13 @@
   import Snackbar from "smelte/src/components/Snackbar";
   import { loggedIn } from "./stores/loggedIn.js";
   import { push } from "svelte-spa-router";
+  import { baseUrl } from "./_baseURL.js";
 
   let errorMsg;
   let showError = false;
 
   const DemoLogin = async () => {
-    const req = await fetch("/api/v1/auth/login", {
+    const req = await fetch(`${baseUrl}/api/v1/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

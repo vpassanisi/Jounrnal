@@ -19,7 +19,4 @@
   {#each entries as entry, i}
     <Entry {entry} {i} {deleteEntry} {editEntry} />
   {/each}
-  <div id="loader" class="h-72 w-full flex justify-center items-center hidden">
-    <ProgressLinear color="secondary" />
-  </div>
 </ul>

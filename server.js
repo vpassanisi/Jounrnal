@@ -55,7 +55,7 @@ app.get("*", (req, res) =>
 
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5500;
 
 const server = app.listen(
   PORT,

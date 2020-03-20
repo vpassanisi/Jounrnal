@@ -7,6 +7,7 @@
   import Journal from "./Journal.svelte";
   import Navbar from "./Navbar.svelte";
   import NotFound from "./NotFound.svelte";
+  import ProgressLinear from "smelte/src/components/ProgressLinear";
 
   const routes = {
     "/": Info,
@@ -32,6 +33,9 @@
 </style>
 
 <main>
+  <div id="loading" class="absolute w-screen mt-16 hidden">
+    <ProgressLinear color="secondary" />
+  </div>
   <div class="bg-img" />
   <Navbar />
   <Router {routes} />
